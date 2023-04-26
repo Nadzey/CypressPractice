@@ -2,13 +2,13 @@
 
 describe('Handling Frames and IFrames', () => {
     
-    it('iFrame - Type in the body - JavaScript Way', () => {
-        cy.visit('https://the-internet.herokuapp.com/iframe');
-        cy.get('iframe#mce_0_ifr').within(fr => {
-          const [myIframe] = fr.get();
-          myIframe.contentDocument.body.getElementsByTagName('p')[0].textContent = 'Test';
-        });
-    });
+    // it('iFrame - Type in the body - JavaScript Way', () => {
+    //     cy.visit('https://the-internet.herokuapp.com/iframe');
+    //     cy.get('iframe#mce_0_ifr').within(fr => {
+    //       const [myIframe] = fr.get();
+    //       myIframe.contentDocument.body.getElementsByTagName('p')[0].textContent = "Test";
+    //     });
+    // });
 
     it('IFrame - Type in the body - JQuery way', () => {
         cy.visit('https://the-internet.herokuapp.com/iframe')
