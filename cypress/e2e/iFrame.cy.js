@@ -6,7 +6,7 @@ describe('Handling Frames and IFrames', () => {
         cy.visit('https://the-internet.herokuapp.com/iframe');
         cy.get('iframe#mce_0_ifr').within(fr => {
           const [myIframe] = fr.get();
-          myIframe.contentDocument.body.getElementsByTagName('p')[0].textContent = 'Test';
+          myIframe.contentDocument.body.getElementsByTagName('p')[0].textContent = "Test";
         });
     });
 

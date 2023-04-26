@@ -84,7 +84,7 @@ describe('Pop-ups and switch to a different website window with Cypress ', () =>
         cy.get('@windowOpen').should('be.calledWith', pop_url)
         cy.window().then(win => {
             win.location.href = pop_url
-            cy.get('#search').type('Cypress by qa box let test {enter}')
+            cy.get('#search-input > #search').type('Cypress by qa box let test {enter}')
             //add to cypress.config.js: "chromeWebSecurity": false,
         })
     })   
