@@ -27,4 +27,4 @@ Cypress.on('uncaught:exception', (err, runnable) => {
 
   //enable support for XPath
   import "cypress-xpath"
-
+  import "@4tw/cypress-drag-drop"

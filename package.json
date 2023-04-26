@@ -9,6 +9,7 @@
   "author": "Nadia Koluzaeva",
   "license": "ISC",
   "devDependencies": {
+    "@4tw/cypress-drag-drop": "^2.2.3",
     "cypress": "^12.9.0",
     "cypress-file-upload": "^5.0.8"
   },
