@@ -24,3 +24,44 @@ import "cypress-file-upload"
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+Cypress.Commands.add('parentCommandName', (name) => {
+    cy.log(name)
+})
+
+Cypress.Commands.add('childCommandName', {prevSubject: true}, (prevSub) => {
+    cy.log(prevSub)
+})
+
+Cypress.Commands.add('childCommandNameEl', {prevSubject: 'element'}, (prevSub) => {
+    cy.log(prevSub.length)
+})
+
+Cypress.Commands.add('childCommandNameDual', {prevSubject: 'optional'}, (prevSub) => {
+    if(prevSub){
+        cy.log(prevSub.length)
+    }
+    else {
+        cy.log('Welcome')
+    }
+})
+
+Cypress.Commands.add('getText', {prevSubject: 'element'}, (prevSub) => {
+    //return prevSub.text()
+    //cypress command way
+    cy.wrap(prevSub.text())
+})
+
+Cypress.Commands.add('getCellValue', (row, col) => {
+    cy.get(`table#table1 > tbody > tr:nth-child(${row})>td:nth-child(${col})`).then((el) => {
+        cy.wrap(el.text())
+    })
+})
+
+Cypress.Commands.add('iframe',{prevSubject: 'element'}, (iframe) => {
+    return new Cypress.Promise((resolve) => {
+        iframe.ready(() => {
+            resolve(iframe.contents().find('body'))
+        })
+      })
+})
